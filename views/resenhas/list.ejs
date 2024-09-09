@@ -1,0 +1,66 @@
+<%- include('../../components/header.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <div class="card-title">
+                            <h3>Puntuacion</h3>
+                            <% if (!resenhado) { %>
+                                <a class="btn btn-primary" href="/resenhas/<%= hamburguesaId %>/create">Agregar</a>
+                                <% } %>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table ">
+                                <thead class="table-dark">
+                                    <tr>
+                                        <th>Usuario</th>
+                                        <th>Comentario</th>
+                                        <th>Puntuacion</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% resenhas.forEach(resenha=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= resenha.usuario.email %>
+                                            </td>
+                                            <td>
+                                                <%= resenha.texto%>
+                                            </td>
+                                            <td>
+                                                <div class="rate">
+                                                    <input type="radio" id="star5<%= resenha.id%>"
+                                                        name="puntuacion<%= resenha.id%>" value="5" <%=(resenha &&
+                                                        resenha.puntuacion==5) && "checked" %> disabled/>
+                                                    <label for="star5<%= resenha.id%>" title="text">5 stars</label>
+                                                    <input type="radio" id="star4<%= resenha.id%>"
+                                                        name="puntuacion<%= resenha.id%>" value="4" <%=(resenha &&
+                                                        resenha.puntuacion==4) && "checked" %> disabled/>
+                                                    <label for="star4<%= resenha.id%>" title="text">4 stars</label>
+                                                    <input type="radio" id="star3<%= resenha.id%>"
+                                                        name="puntuacion<%= resenha.id%>" value="3" <%=(resenha &&
+                                                        resenha.puntuacion==3) && "checked" %> disabled/>
+                                                    <label for="star3<%= resenha.id%>" title="text">3 stars</label>
+                                                    <input type="radio" id="star2<%= resenha.id%>"
+                                                        name="puntuacion<%= resenha.id%>" value="2" <%=(resenha &&
+                                                        resenha.puntuacion==2) && "checked" %> disabled/>
+                                                    <label for="star2<%= resenha.id%>" title="text">2 stars</label>
+                                                    <input type="radio" id="star1<%= resenha.id%>"
+                                                        name="puntuacion<%= resenha.id%>" value="1" <%=(resenha &&
+                                                        resenha.puntuacion==1) && "checked" %> disabled/>
+                                                    <label for="star1<%= resenha.id%>" title="text">1 star</label>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../../components/footer.ejs') %>

@@ -1,0 +1,40 @@
+<%- include('../../components/header.ejs') %>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-8 col-sm-10 col-xxl-4">
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Deja tu comentario!!</h5>
+                        <form method="post" action="">
+                            <input type="text" value="<%= hamburguesaId %>" name="hamburguesaId" hidden>
+                            <div class="mt-2">
+                                <label>Comentario</label>
+                                <input required class="form-control" type="texto" name="texto" placeholder="Texto"
+                                    value="<%=resenha && resenha.texto %>">
+                            </div>
+                            <div class="mt-2"></div>
+                            <label>Puntuacion</label>
+                            <div class="rate">
+                                <input type="radio" id="star5" name="puntuacion" value="5" />
+                                <label for="star5" title="text">5 stars</label>
+                                <input type="radio" id="star4" name="puntuacion" value="4" />
+                                <label for="star4" title="text">4 stars</label>
+                                <input type="radio" id="star3" name="puntuacion" value="3" />
+                                <label for="star3" title="text">3 stars</label>
+                                <input type="radio" id="star2" name="puntuacion" value="2" />
+                                <label for="star2" title="text">2 stars</label>
+                                <input type="radio" id="star1" name="puntuacion" value="1" />
+                                <label for="star1" title="text">1 star</label>
+                            </div>
+                            <div class="mt-2">
+                                <input class="btn btn-primary" type="submit" value="Enviar">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <%- include('../../components/footer.ejs') %>

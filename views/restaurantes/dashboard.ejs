@@ -1,0 +1,48 @@
+<%- include('../../components/header.ejs') %>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <!-- <div class="card-title">
+                            <h3>Lista de Restaurantes</h3>
+                        </div> -->
+                        <div class="table-responsive">
+                            <table class="table ">
+                                <!-- cards de todos los restaurantes disponibles -->
+                                <div class="row">
+                                    <% restaurantes.forEach(restaurante=> { %>
+                                        <div class="col-4">
+                                            <a class="card mt-3 custom-card"
+                                                href="/hamburguesas/<%= restaurante.id %>/detail/list">
+                                                <div>
+                                                    <img class="card-img-top profile-card"
+                                                        src="/images/profile/<%= restaurante.id %>.jpg"
+                                                        alt="Card image cap">
+                                                    <div class="card-body">
+                                                        <div class="card-title">
+                                                            <h3>
+                                                                <%= restaurante.nombre %>
+                                                            </h3>
+                                                        </div>
+                                                        <div class="card-text">
+                                                            <p>
+                                                                <%= restaurante.descripcion %>
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <% }) %>
+                                </div>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <%- include('../../components/footer.ejs') %>
